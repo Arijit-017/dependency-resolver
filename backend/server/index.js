@@ -1,11 +1,13 @@
+const express = require("express")
+const mongoose = require("mongoose")
+const cors = require("cors")
+const resolver = require("./resolver")
+const Job = require("../models/jobModel")
 
-const express = require("express");
-const mongoose = require("mongoose");
-const resolver = require("./resolver");
-const Job = require("../models/jobModel");
+const app = express()
 
-const app = express();
-app.use(express.json());
+app.use(cors())
+app.use(express.json())
 
 mongoose.connect("mongodb://127.0.0.1:27017/dependency")
 .then(()=>console.log("MongoDB Connected"));
